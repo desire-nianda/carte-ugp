@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carte interactive — Sites du plan d'investissement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="layout">
+
+    <!-- ===== Panneau gauche : carte ===== -->
+    <section class="card card-map">
+      <header class="map-header">
+        <h2 class="map-title">Sélectionner une province</h2>
+        <div class="select-wrap">
+          <select id="provinceSelect" aria-label="Sélectionnez une province">
+            <option value="">Sélectionnez une province</option>
+          </select>
+        </div>
+      </header>
+
+      <div class="map-box" id="mapBox">
+        <!-- Conteneur amCharts -->
+        <div id="chartdiv" role="img" aria-label="Carte des provinces de la RDC"></div>
+
+        <div class="zoom-controls">
+          <button type="button" id="zoomIn" aria-label="Zoom avant">+</button>
+          <button type="button" id="zoomOut" aria-label="Zoom arrière">−</button>
+        </div>
+
+        <div class="map-message" id="mapMessage" hidden></div>
+      </div>
+
+      <ul class="legend" id="legend">
+        <li><span class="sw sw-square sw-selected"></span>Province sélectionnée</li>
+        <li><span class="sw sw-square sw-has-sites"></span>Province avec sites répertoriés</li>
+      </ul>
+    </section>
+
+    <!-- ===== Panneau droit : détail ===== -->
+    <aside class="card card-detail">
+      <div class="detail-top">
+        <div class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22">
+            <path fill="currentColor" d="M15 4.5 9 2.5 3 4.5v17l6-2 6 2 6-2v-17l-6 2Zm-6 13-4 1.33V6l4-1.33V17.5Zm6 1.83-4-1.33V4.67l4 1.33v13.33Zm4-.5-2 .67V6.17l2-.67V18.83Z" opacity=".35"/>
+            <path fill="currentColor" d="M15.5 7a3.5 3.5 0 0 0-3.5 3.5c0 2.6 3.5 6 3.5 6s3.5-3.4 3.5-6A3.5 3.5 0 0 0 15.5 7Zm0 4.8a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6Z"/>
+          </svg>
+        </div>
+        <span class="badge" id="badge"><i></i><span id="badgeText">Choisissez une province</span></span>
+      </div>
+
+      <div class="detail-body" id="detailBody">
+        <h1 class="detail-title" id="detailTitle">Choisissez une province</h1>
+        <p class="detail-sub" id="detailSub">Sélectionnez une province pour consulter les sites couverts par le plan d’investissement.</p>
+        <ul class="site-list" id="siteList"></ul>
+      </div>
+
+      <p class="detail-note">
+        <strong>À noter :</strong> les localisations signalées comme indicatives sont à confirmer ; une province sans site répertorié dans cette vue n’est pas nécessairement exclue du plan.
+      </p>
+    </aside>
+
+  </main>
+
+  <!-- amCharts 5 : cœur, cartes, thème animé et fond de carte de la RDC -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/geodata/congoDRHigh.js"></script>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
