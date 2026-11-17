@@ -10,7 +10,7 @@ const COLORS = {
   sitesHover:   0x3f6d55,
   selected:     0x2f4f9f,  // province sélectionnée
   border:       0xffffff,
-  label:        0x3a4152,
+  label:        0x000000,
   box:          0x111827,  // cadre noir de sélection
   halo:         0xf59e0b,
   tooltipBg:    0x1c2541

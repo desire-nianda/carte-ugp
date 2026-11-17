@@ -237,8 +237,8 @@ body {
   padding: 0 13px;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 600;
-  color: #020202;
+  font-weight: bolder;
+  color: #000000;
   background: #f3f5f9;
   border: 1px solid #e9ecf3;
   transition:
